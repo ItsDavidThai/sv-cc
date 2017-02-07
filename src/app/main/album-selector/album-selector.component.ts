@@ -1,8 +1,8 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PlaceholderApiService } from '../placeholder-api.service';
 import { Subscription }   from 'rxjs/Subscription';
-
 declare var $;
+
 @Component({
   selector: 'app-album-selector',
   templateUrl: './album-selector.component.html',
@@ -10,6 +10,7 @@ declare var $;
 })
 export class AlbumSelectorComponent {
   public albums;
+  public selectedAlbum = {title: 'quidem molestiae enim'};
   subscription: Subscription;
 
   constructor(private placeholderApi: PlaceholderApiService) {
@@ -32,6 +33,9 @@ export class AlbumSelectorComponent {
     );
   }
   albumClicked(albumId){
+
+    console.log(this.albums[albumId - 1], 'id')
+    this.selectedAlbum = this.albums[albumId - 1]
     this.placeholderApi.selectedAlbum.next(albumId)
   }
 
