@@ -1,0 +1,9 @@
+<!-- Dropdown Trigger -->
+<a class='dropdown-button btn' href='#' data-activates='dropdown1'>Albums List</a>
+
+<!-- Dropdown Structure -->
+<ul id='dropdown1' class='dropdown-content'>
+  <li *ngFor="let album of albums; let i = index" (click)="albumClicked(i+1)">
+   {{album.id}}. {{album.title}}
+  </li>
+</ul>
