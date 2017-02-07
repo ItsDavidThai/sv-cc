@@ -1,6 +1,6 @@
-
-
-
+/*
+  keep card sizes constant when window is smaller
+*/
 @media (min-width: 1000px) {
   .resize {
     width: auto;

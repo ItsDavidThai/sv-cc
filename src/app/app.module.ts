@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
+// Components
 import { AppComponent } from './app.component';
 import { MainComponent } from './main/main.component';
 import { AlbumSelectorComponent } from './main/album-selector/album-selector.component';

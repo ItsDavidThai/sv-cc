@@ -1,16 +1,15 @@
+<div class='center-align'>
 
-  <div class='center-align'>
+  <!-- Dropdown Trigger -->
+  <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Albums List</a>
 
-    <!-- Dropdown Trigger -->
-    <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Albums List</a>
+  <!-- Dropdown Structure -->
+  <ul id='dropdown1' class='dropdown-content col s12 m6 l3 '>
+    <li *ngFor="let album of albums; let i = index" (click)="albumClicked(i+1)">
+     {{album.id}}. {{album.title}}
+    </li>
+  </ul>
+  <h4 col s12 m6 l3>Selected Album: {{ selectedAlbum.title }}</h4>
 
-    <!-- Dropdown Structure -->
-    <ul id='dropdown1' class='dropdown-content col s12 m6 l3 '>
-      <li *ngFor="let album of albums; let i = index" (click)="albumClicked(i+1)">
-       {{album.id}}. {{album.title}}
-      </li>
-    </ul>
-    <h4 col s12 m6 l3>Selected Album: {{ selectedAlbum.title }}</h4>
-
-  </div>
+</div>
 
