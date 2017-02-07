@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-gallery-display-item',
@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./gallery-display-item.component.css']
 })
 export class GalleryDisplayItemComponent implements OnInit {
+  @Input() photoData;
+  constructor() {
 
-  constructor() { }
+  }
 
   ngOnInit() {
   }

@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { PlaceholderApiService } from '../placeholder-api.service';
+import { Subscription }   from 'rxjs/Subscription';
+
 declare var $;
 @Component({
   selector: 'app-album-selector',
@@ -8,13 +10,14 @@ declare var $;
 })
 export class AlbumSelectorComponent {
   public albums;
-  @Output() selectedAlbumId = new EventEmitter();
+  subscription: Subscription;
 
   constructor(private placeholderApi: PlaceholderApiService) {
-    this.placeholderApi.getAlbums().subscribe(function(res){
-      this.albums = res.json()
-      console.log(this)
+    this.subscription = placeholderApi.albums.subscribe(function(stream){
+      console.log(stream)
+      this.albums = stream
     }.bind(this))
+
 
     $('.dropdown-button').dropdown({
         inDuration: 300,
@@ -29,8 +32,7 @@ export class AlbumSelectorComponent {
     );
   }
   albumClicked(albumId){
-    this.selectedAlbumId.next(albumId)
-    console.log(albumId)
+    this.placeholderApi.selectedAlbum.next(albumId)
   }
 
 }
